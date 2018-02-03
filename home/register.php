@@ -58,7 +58,7 @@
 			    <div class="layui-input-inline">
 			        <input type="text" name="verify_code" lay-verify="required|verify_code" placeholder="请输入验证码" required autocomplete="off" class="layui-input">
 			    </div>
-			     <img width="100px" height="40px" src="/admin/createCaptcha.php" onclick="this.src = '/admin/createCaptcha.php?time='+Math.random();" alt="点击更换" title="点击更换" style="float:left;cursor: pointer">
+			     <img width="100px" height="40px" src="/admin/create_captcha.php" onclick="this.src = '/admin/create_captcha.php?time='+Math.random();" alt="点击更换" title="点击更换" style="float:left;cursor: pointer">
 			</div>
 			<div class="layui-form-item">
 				<div class="layui-input-block">
@@ -85,7 +85,7 @@
 		  		$('input[type=submit]').attr('disabled',true).addClass('layui-btn-disabled');
 		  		//异步提交
 			  	$.ajax({
-			  		url:'registerControl.php',
+			  		url:'register_control.php',
 			  		data:regData,
 			  		dataType:'json',
 			  		method:'post',

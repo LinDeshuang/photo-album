@@ -20,6 +20,11 @@
 		      return '昵称长度不能大于20';
 		     }
 		    },
+		    introduction: function(value){
+	    	 if(value.length > 200){
+		      return '介绍长度不能大于200';
+		     }
+		    },
 		    verify_code: function(value){
 	    	 if(!/^\w{4}$/.test(value)){
 		      return '验证码格式错误';

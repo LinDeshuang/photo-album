@@ -33,7 +33,7 @@
 			    <div class="layui-input-inline">
 			        <input type="text" name="verify_code" placeholder="请输入验证码" lay-verify="required" required autocomplete="off" class="layui-input">
 			    </div>
-			    <img width="100px" height="40px" src="/admin/createCaptcha.php" onclick="this.src = '/admin/createCaptcha.php?time='+Math.random();" alt="点击更换" title="点击更换" style="float:left;cursor: pointer">
+			    <img width="100px" height="40px" src="/admin/create_captcha.php" onclick="this.src = '/admin/create_captcha.php?time='+Math.random();" alt="点击更换" title="点击更换" style="float:left;cursor: pointer">
 			</div>
 			<div class="layui-form-item">
 			    <label class="layui-form-label">自动登录</label>
@@ -59,11 +59,10 @@
 		  //监听提交
 		  form.on('submit(*)', function(data){
 		  	var logData = data.field;
-		  	console.log(logData)
-		  	// $('input[type=submit]').attr('disabled',true).addClass('layui-btn-disabled');
+		  	 $('input[type=submit]').attr('disabled',true).addClass('layui-btn-disabled');
 		  		//异步提交
 			  	$.ajax({
-			  		url:'loginControl.php',
+			  		url:'login_control.php',
 			  		data:logData,
 			  		dataType:'json',
 			  		method:'post',

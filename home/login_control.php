@@ -1,5 +1,5 @@
 <?php 
-	require('../class/DB.php');
+	require('../class/db.php');
 	$errCode = '';
 	$errMsg = '';
 	session_start();
@@ -24,6 +24,7 @@
 			$_SESSION["user_account"] = $user_info[0]['account'];
 			$_SESSION["user_nick_name"] = $user_info[0]['nick_name'];
 			$_SESSION["user_photo"] = $user_info[0]['photo'];
+			$_SESSION["user_id"] = $user_info[0]['id'];
 			setcookie(session_name(), session_id(), time() + $lifeTime, "/"); 
 			$errCode = 0;
 			$errMsg  = '登录成功';

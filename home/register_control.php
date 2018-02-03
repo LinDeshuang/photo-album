@@ -1,5 +1,5 @@
 <?php 
-	require('../class/DB.php');
+	require('../class/db.php');
 	$errCode = '';
 	$errMsg = '';
 	session_start();
