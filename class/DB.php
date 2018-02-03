@@ -6,7 +6,7 @@ class DB
   public function __construct($dbname)
   {
   	try{
-  		$this->con=new PDO("mysql:host=localhost;dbname=$dbname","root","root");
+  		$this->con=new PDO("mysql:host=localhost;dbname={$dbname}","root","root");
    		$this->con->exec('set names utf8');
   	}catch(Exception $e){
   		echo 'DB error: '.$e->getMessage();
@@ -56,6 +56,10 @@ class DB
   public function lastInsertId($id){
     return $this->con->lastInsertId($id);
   }
+  public function errorInfo(){
+  	return $this->con->errorInfo();
+  }
 }
-$db = new DB('album');
+$_DB = new DB('album');
+const SALT = 'dsacqwe324E1KaDexznad6aE4da45';
 ?>

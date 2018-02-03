@@ -30,9 +30,9 @@ function createCaptcha($length = 4){
 
 		$text_color = imagecolorallocate($im, rand(0,120),rand(0,120),rand(0,120));
 
-		$x = ($i*50) + rand(5, 15);  
+		$x = ($i*50) + rand(5, 10);  
 
-		imagettftext($im, $fontSize, mt_rand(-40, 40), $x,  $fontSize*1.6, $text_color, '../class/ttfs/'.rand(1,6).'.ttf', $char);
+		imagettftext($im, $fontSize, mt_rand(-40, 40), $x,  $fontSize*1.4, $text_color, '../class/ttfs/'.rand(1,6).'.ttf', $char);
 	}
 
 	//画干扰点
