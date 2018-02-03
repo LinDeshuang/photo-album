@@ -34,11 +34,11 @@
 			$errCode = 410;
 			$errMsg = '邮箱已存在';
 		}else {
-			$time = time();
-			//密码加盐加密
-			$password = md5(md5($password).SALT);
-			$insertData = [$account,$password,$nick_name,$gender,$email,$time];
-			$res = $_DB->prepare("insert into user(id,account,password,nick_name,gender,email,create_time) values(null,?,?,?,?,?,?)",$insertData);
+			$time = time();//注册时间
+			$password = md5(md5($password).SALT);//密码加盐加密
+			$photo = '/public/static/images/minion.jpg';//默认头像
+			$insertData = [$account,$password,$nick_name,$gender,$email,$time,$photo,1,0];
+			$res = $_DB->prepare("insert into user(id,account,password,nick_name,gender,email,create_time,photo,status,points) values(null,?,?,?,?,?,?,?,?,?)",$insertData);
 			if($res){
 				$errCode = 0;
 				$errMsg = '注册成功';

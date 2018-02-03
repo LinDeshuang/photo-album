@@ -70,7 +70,7 @@
 			  		success:function(retData){
 			  			if(retData.errcode == 0){
 			  				layer.msg(retData.errmsg,{icon:1});
-			  				// setTimeout(function(){window.history.back();},1500);
+			  				setTimeout(function(){window.history.back();},1500);
 			  			}else{
 			  				layer.msg(retData.errmsg,{icon:5});
 			  			}
