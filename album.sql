@@ -1,24 +1,31 @@
 /*
-Navicat MySQL Data Transfer
-
-Source Server         : localhost
-Source Server Version : 50553
-Source Host           : localhost:3306
-Source Database       : album
-
-Target Server Type    : MYSQL
-Target Server Version : 50553
-File Encoding         : 65001
-
-Date: 2018-02-03 13:27:02
+MySQL Data Transfer
+Source Host: localhost
+Source Database: album
+Target Host: localhost
+Target Database: album
+Date: 2018/2/4 18:15:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for photo
+-- ----------------------------
+CREATE TABLE `photo` (
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(8) NOT NULL,
+  `photo_name` varchar(20) NOT NULL,
+  `path_name` varchar(50) NOT NULL,
+  `note` varchar(150) DEFAULT NULL,
+  `create_time` int(12) NOT NULL,
+  `d_time` int(12) DEFAULT NULL,
+  `status` bit(1) NOT NULL DEFAULT b'1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` bigint(8) unsigned NOT NULL AUTO_INCREMENT,
   `account` varchar(30) NOT NULL COMMENT '账号',
@@ -37,6 +44,6 @@ CREATE TABLE `user` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of user
+-- Records 
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'lds18826131701', '7f6e116ff99e5e46138c4810441a80d7', 'linds', '', null, '1287702249@qq.com', '/public/static/images/minion.jpg', '1517628499', null, null, '', '0');
+INSERT INTO `user` VALUES ('1', 'lds18826131701', '0a4adca12227df0cb1ff3123b1328798', 'linds', '', 'roieiorothggbsu', '1287702249@qq.com', '/public/static/images/minion.jpg', '1517628499', null, null, '', '0');

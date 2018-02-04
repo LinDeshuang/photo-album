@@ -36,7 +36,10 @@
 				    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
 				    <div class="layui-timeline-content layui-text">
 				      <h3 class="layui-timeline-title">我的资料</h3>
-				      <img id="photo" src="<?php echo $user_info[0]['photo'];?>" class="layui-anim layui-anim-up" alt="用户头像" title="用户头像" width="200px" height="200px" style="border:solid 2px #2F4056;border-radius: 50%;">
+				      <img id="photo" src="<?php echo $user_info[0]['photo'];?>" class="layui-anim layui-anim-up" alt="用户头像" title="用户头像" width="200px" height="200px" style="border:solid 2px #2F4056;border-radius: 50%;"><br>
+				      <button type="button" class="layui-btn" id="changePhoto" style="margin: 10px 50px;">
+				      	<i class="layui-icon">&#xe60d;</i>设置头像
+				      </button>
 				    </div>
 				  </li>
 				  <li class="layui-timeline-item">
@@ -90,7 +93,7 @@
 	  	</div>
 	  	<div class="layui-tab-item">
 	  		<!-- 帐号设置 -->
-	  			<form class="layui-form layui-bg-cyan text-center" style="margin:5% auto;padding:30px;width: 500px;">
+	  			<form class="layui-form text-center" style="margin:5% auto;padding:30px;width: 500px;">
 					<div class="layui-form-item">
 					    <label class="layui-form-label">用户名</label>
 					    <div class="layui-input-block">
@@ -239,8 +242,22 @@
 		  		}
 		    return false;
 		  });
+		});
 
+		//设置头像
+		layui.use('upload',function(){
+			var upload = layui.upload;
 
+			var uploadInst = upload.render({
+				elem: '#changePhoto',
+				url: '/upload/',
+				done: function(res){
+					console.log(res);
+				},
+				error: function(){
+					alert('error');
+				}
+			});
 		});
 	</script>
 </html>
