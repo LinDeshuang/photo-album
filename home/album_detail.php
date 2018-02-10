@@ -43,7 +43,7 @@
 			<blockquote class='layui-elem-quote' style="background-color: #fff;">相册详情</blockquote> 
 			<div class="layui-container album-detail-container" style="background-color: #fff;width: 100%; padding: 20px;">
 			<?php 
-				$album_info = $_DB->query("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status=1 AND album.d_time=0 AND album.album_type=1 AND album.album_photo != '' AND album.id = {$album_id}");
+				$album_info = $_DB->query("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status='1' AND album.d_time=0 AND album.album_type='1' AND album.album_photo != '' AND album.id = {$album_id}");
 				extract($album_info[0]);
 				$photo_info = $_DB->query("SELECT * FROM photo WHERE id in($album_photo)");
 				$tag_info = $_DB->query("SELECT * FROM album_tag WHERE d_time=0 AND $user_id = {$user_id}");
@@ -94,7 +94,7 @@
 
 						<!--输出评论-->
 						<?php 
-							$comment_info = $_DB->query("SELECT comment.id, comment.pid,comment.user_id,comment.comment_content, comment.album_id, comment.create_time, comment.status,comment.d_time,user.nick_name FROM comment LEFT JOIN user ON comment.user_id=user.id WHERE album_id={$album_id} AND comment.status=1 AND comment.d_time=0 ORDER BY comment.create_time DESC");
+							$comment_info = $_DB->query("SELECT comment.id, comment.pid,comment.user_id,comment.comment_content, comment.album_id, comment.create_time, comment.status,comment.d_time,user.nick_name FROM comment LEFT JOIN user ON comment.user_id=user.id WHERE album_id={$album_id} AND comment.status='1' AND comment.d_time=0 ORDER BY comment.create_time DESC");
 							$comment_info = arrayToLevel($comment_info);
 							foreach ($comment_info as $key => $value) {
 				                if($value['pid']!=0){
@@ -228,6 +228,7 @@
 								  	success:function(retData){
 								  		if(retData.errcode == 0){
 								  			layer.msg(retData.errmsg,{icon:1});
+								  			setTimeout(function(){ window.location.reload(); } ,1500);
 								  		}else {
 								  			layer.msg(retData.errmsg,{icon:5});
 								  		}

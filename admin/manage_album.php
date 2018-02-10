@@ -30,11 +30,11 @@
 	    <?php 
 	    	$user_id = $_SESSION['user_id'];
 	    	$if_search_album_type = ($album_type==2)?"":"AND album_type = {$album_type}";
-	    	$count = $_DB->rowCount("SELECT * FROM album WHERE status = 1 AND user_id = {$user_id} AND d_time = 0 {$if_search_album_type} AND {$search_type} LIKE '%{$search_val}%' ");
+	    	$count = $_DB->rowCount("SELECT * FROM album WHERE status = '1' AND user_id = {$user_id} AND d_time = 0 {$if_search_album_type} AND {$search_type} LIKE '%{$search_val}%' ");
 	    	$page_size = 8;
 	    	$url = "manage_album.php?nav=2-1&search_type={$search_type}&search_val={$search_val}&album_type={$album_type}&page={page}";
 	    	$start = $page_size*($page-1);
-	   		$album_info = $_DB->query("SELECT * FROM album WHERE status = 1 AND user_id = {$user_id} AND d_time = 0 {$if_search_album_type} AND  {$search_type} LIKE '%{$search_val}%' ORDER BY create_time DESC LIMIT {$start},{$page_size}  ");
+	   		$album_info = $_DB->query("SELECT * FROM album WHERE status = '1' AND user_id = {$user_id} AND d_time = 0 {$if_search_album_type} AND  {$search_type} LIKE '%{$search_val}%' ORDER BY create_time DESC LIMIT {$start},{$page_size}  ");
 	   		$tag_info = $_DB->query("SELECT * FROM album_tag WHERE user_id = {$user_id} and d_time = 0 ORDER BY create_time");
 	     ?>
     	<form class="layui-form layui-form-pane">

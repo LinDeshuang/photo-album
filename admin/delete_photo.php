@@ -10,7 +10,7 @@
 		}else if (!$_DB->rowCount("SELECT id FROM photo WHERE id={$id}")){
 			$errCode = 410;
 			$errMsg  = '该图片不存在！';
-		}else if (($_DB->query("SELECT is_head FROM photo WHERE id={$id}")[0]['is_head'])){
+		}else if (($_DB->query("SELECT is_head FROM photo WHERE id={$id}")[0]['is_head'] == '1')){
 			$errCode = 410;
 			$errMsg  = '该图片是头像，不能删！';
 		}else{

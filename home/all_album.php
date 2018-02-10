@@ -20,11 +20,11 @@
 			<blockquote class='layui-elem-quote' style="background-color: #fff;">所有相册</blockquote> 
 			<?php 
 				$tag_info = $_DB->query("SELECT * FROM album_tag WHERE d_time=0");
-				$all_album_count = $_DB->rowCount("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type, album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status=1 AND album.d_time=0 AND album.album_type=1 AND album.album_photo != '' ");
+				$all_album_count = $_DB->rowCount("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type, album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status='1' AND album.d_time=0 AND album.album_type='1' AND album.album_photo != '' ");
 				$page_size = 8;
 				$start = $page_size*($page-1);
 				$url = "/home/all_album.php?page={page}";
-				$album_info = $_DB->query("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type, album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status=1 AND album.d_time=0 AND album.album_type=1 AND album.album_photo != ''  ORDER BY album.create_time  DESC LIMIT {$start},{$page_size}");
+				$album_info = $_DB->query("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type, album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status='1' AND album.d_time=0 AND album.album_type='1' AND album.album_photo != ''  ORDER BY album.create_time  DESC LIMIT {$start},{$page_size}");
 			 ?>
 			 <div class="layui-container" style="background-color: #fff;width: 100%; padding: 20px;">
 			 	<div class="layui-row">

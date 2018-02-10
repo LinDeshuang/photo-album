@@ -48,8 +48,8 @@
 		  <div class="layui-form-item">
 		    <label class="layui-form-label">相册类型</label>
 		    <div class="layui-input-block">
-		        <input type="radio" name="album_type" value="1" <?php if($album_type == 1){ echo "checked";}?> title="公开">
-		        <input type="radio" name="album_type" value="0" <?php if($album_type == 0){ echo "checked";}?> title="私有">
+		        <input type="radio" name="album_type" value="1" <?php if($album_type == '1'){ echo "checked";}?> title="公开">
+		        <input type="radio" name="album_type" value="0" <?php if($album_type == '0'){ echo "checked";}?> title="私有">
 		    </div> 
 		  </div>
 		  <div class="layui-form-item">

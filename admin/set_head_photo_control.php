@@ -20,8 +20,8 @@
 					$errMsg  = '图片不存在';
 				}else{
 					$path_name = $photo_info[0]['path_name'];
-					$_DB->exec("UPDATE photo SET is_head = 0 WHERE user_id={$user_id}");
-					$_DB->exec("UPDATE photo SET is_head = 1 WHERE user_id={$user_id} AND id = {$photo_id}");
+					$_DB->exec("UPDATE photo SET is_head = '0' WHERE user_id={$user_id}");
+					$_DB->exec("UPDATE photo SET is_head = '1' WHERE user_id={$user_id} AND id = {$photo_id}");
 					if($_DB->exec("UPDATE user SET photo='$path_name' WHERE id={$user_id}")){
 						$errCode = 0;
 						$errMsg  = '设置成功';

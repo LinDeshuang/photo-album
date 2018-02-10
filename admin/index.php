@@ -1,3 +1,6 @@
+<?php 
+header('Location:manage_photo.php');
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

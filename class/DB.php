@@ -56,7 +56,7 @@ class DB
     $stmt=$this->con->prepare($sql);
     $stmt->execute($array);
     $res = $stmt->errorInfo();
-    if($res[0] == '00000'){
+    if($res[0] =='00000'){
       return true;
     }else{
       return false;

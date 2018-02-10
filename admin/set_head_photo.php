@@ -42,11 +42,11 @@
 		    <h3 class="layui-colla-title">选择一张图片作为头像<span class="layui-badge">设置后重新登录才能看到真正的效果哦</span></h3>
 		    <div class="layui-colla-content layui-show">
 		    	<?php 
-		    	$count = $_DB->rowCount("SELECT * FROM photo WHERE  status = 1 AND user_id = {$user_id} AND d_time = 0 AND {$search_type} LIKE '%{$search_val}%' ");
+		    	$count = $_DB->rowCount("SELECT * FROM photo WHERE  status = '1' AND user_id = {$user_id} AND d_time = 0 AND {$search_type} LIKE '%{$search_val}%' ");
 		    	$page_size = 4;
 		    	$url = "/admin/set_head_photo.php?nav=2-4&search_type={$search_type}&search_val={$search_val}&page={page}";
 		    	$start = $page_size*($page-1);
-		   		$photo_info = $_DB->query("SELECT * FROM photo WHERE status = 1 AND user_id = {$user_id} AND d_time = 0 AND {$search_type} LIKE '%{$search_val}%' ORDER BY create_time DESC LIMIT {$start},{$page_size}  ");
+		   		$photo_info = $_DB->query("SELECT * FROM photo WHERE status = '1' AND user_id = {$user_id} AND d_time = 0 AND {$search_type} LIKE '%{$search_val}%' ORDER BY create_time DESC LIMIT {$start},{$page_size}  ");
 
 
 	   			 ?>

@@ -14,7 +14,7 @@
 				$errCode = 410;
 				$errMsg  = '创建失败，参数缺失';
 			}else{
-				$album_info = $_DB->query("SELECT * FROM album WHERE user_id={$user_id} AND id='{$album_id}' AND status = 1 AND d_time = 0");
+				$album_info = $_DB->query("SELECT * FROM album WHERE user_id={$user_id} AND id='{$album_id}' AND status = '1' AND d_time = 0");
 				if($album_info == false || empty($album_info)){
 					$errCode = 410;
 					$errMsg  = '该相册不存在';

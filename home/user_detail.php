@@ -34,7 +34,7 @@
 				 		 ?>
 		 		 	</div>
 		 		<div class="user-detail-box">
-	 		 		<p class='layui-elem-quote layui-quote-nm'>性别：<?php if($gender){echo "男&nbsp;<i class='layui-icon'>&#xe662;</i>";}else{echo "女<i class='layui-icon'>&#xe661;</i>";} ?></p> 
+	 		 		<p class='layui-elem-quote layui-quote-nm'>性别：<?php if($gender=='1'){echo "男&nbsp;<i class='layui-icon'>&#xe662;</i>";}else if($gender=='2'){echo "女<i class='layui-icon'>&#xe661;</i>";}else{echo "未知";} ?></p> 
 	 		 		<p class='layui-elem-quote layui-quote-nm'>简介：<?php if(empty($introduction)){echo "<i class='layui-icon'>&#xe69c;</i>&nbsp;他很懒，什么都没写";}else{echo $introduction;} ?></p> 
 	 		 		<p class='layui-elem-quote layui-quote-nm'>邮箱：<?php echo $email; ?></p> 
 
@@ -44,11 +44,11 @@
 
 	 		 			<?php 
 							$tag_info = $_DB->query("SELECT * FROM album_tag WHERE d_time=0");
-							$all_album_count = $_DB->rowCount("SELECT * FROM album WHERE status=1 AND d_time=0 AND album_type=1 AND album_photo != '' AND user_id = {$user_id} ");
+							$all_album_count = $_DB->rowCount("SELECT * FROM album WHERE status='1' AND d_time=0 AND album_type='1' AND album_photo != '' AND user_id = {$user_id} ");
 							$page_size = 8;
 							$start = $page_size*($page-1);
 							$url = "/home/user_detail.php?page={page}";
-							$album_info = $_DB->query("SELECT * FROM album WHERE status=1 AND d_time=0 AND album_type=1 AND album_photo != '' AND user_id = {$user_id}  ORDER BY create_time  DESC LIMIT {$start},{$page_size}");
+							$album_info = $_DB->query("SELECT * FROM album WHERE status='1' AND d_time=0 AND album_type='1' AND album_photo != '' AND user_id = {$user_id}  ORDER BY create_time  DESC LIMIT {$start},{$page_size}");
 						 ?>
 						 <div class="layui-container" style="background-color: #fff;width: 100%; padding: 20px;">
 						 	<div class="layui-row">

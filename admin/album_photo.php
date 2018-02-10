@@ -71,11 +71,11 @@
 		    <h3 class="layui-colla-title">相册图片<span class="layui-badge">相册的第一张照片将作为封面</span></h3>
 		    <div class="layui-colla-content layui-show">
 	      		<?php 
-			    	$album_photo_count = $_DB->rowCount("SELECT * FROM photo WHERE id IN ({$album_photo}) AND status = 1 and user_id = {$user_id} and d_time = 0");
+			    	$album_photo_count = $_DB->rowCount("SELECT * FROM photo WHERE id IN ({$album_photo}) AND status = '1' and user_id = {$user_id} and d_time = 0");
 			    	$album_photo_page_size = 4;
 			    	$album_photo_url = "/admin/album_photo.php?id={$album_id}&nav=2-4&search_type={$search_type}&search_val={$search_val}&page={$page}&album_photo_page={page}";
 			    	$album_photo_start= $album_photo_page_size*($album_photo_page-1);
-			   		$album_photo_info = $_DB->query("SELECT * FROM photo WHERE id IN ({$album_photo}) AND status = 1 and user_id = {$user_id} and d_time = 0 ORDER BY create_time DESC LIMIT {$album_photo_start},{$album_photo_page_size}  ");
+			   		$album_photo_info = $_DB->query("SELECT * FROM photo WHERE id IN ({$album_photo}) AND status = '1' and user_id = {$user_id} and d_time = 0 ORDER BY create_time DESC LIMIT {$album_photo_start},{$album_photo_page_size}  ");
 
 
 	   			?>
@@ -122,11 +122,11 @@
 		    	}else {
 		    		$not_in = "id NOT IN ({$album_photo}) AND";
 		    	}
-		    	$count = $_DB->rowCount("SELECT * FROM photo WHERE ".$not_in." status = 1 AND user_id = {$user_id} AND d_time = 0 AND {$search_type} LIKE '%{$search_val}%' ");
+		    	$count = $_DB->rowCount("SELECT * FROM photo WHERE ".$not_in." status = '1' AND user_id = {$user_id} AND d_time = 0 AND {$search_type} LIKE '%{$search_val}%' ");
 		    	$page_size = 4;
 		    	$url = "/admin/album_photo.php?id={$album_id}&nav=2-4&search_type={$search_type}&search_val={$search_val}&album_photo_page={$album_photo_page}&page={page}";
 		    	$start = $page_size*($page-1);
-		   		$photo_info = $_DB->query("SELECT * FROM photo WHERE ".$not_in." status = 1 AND user_id = {$user_id} AND d_time = 0 AND {$search_type} LIKE '%{$search_val}%' ORDER BY create_time DESC LIMIT {$start},{$page_size}  ");
+		   		$photo_info = $_DB->query("SELECT * FROM photo WHERE ".$not_in." status = '1' AND user_id = {$user_id} AND d_time = 0 AND {$search_type} LIKE '%{$search_val}%' ORDER BY create_time DESC LIMIT {$start},{$page_size}  ");
 
 
 	   			 ?>
