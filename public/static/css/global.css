@@ -1,2 +1,22 @@
 .form-h2{background: #2F4056;height: 50px;margin: -30px;margin-bottom: 20px;text-align: center;line-height: 3em;}
-.form-h2 a{float:left;width: 50%;height: 100%;cursor: pointer;font-size: 20px;color: white;}
+.form-h2 a{float:left;width: 50%;height: 100%;cursor: pointer;font-size: 20px;color: white;}   
+#page{height:40px; padding:20px 0px;}    
+#page a{display:block;  float:left; margin-right:10px;padding:2px 12px;height:24px; border:1px #cccccc solid;background:#fff; text-decoration:none;color:#808080;  font-size:12px;  line-height:24px;}    
+#page a:hover{ color:#077ee3; border:1px #077ee3 solid; }    
+#page a.cur{ border:none; background:#077ee3;color:#fff;}    
+#page p{ float:left; padding:2px 12px; font-size:12px; height:24px; line-height:24px; color:#bbb; border:1px #ccc solid; background:#fcfcfc; margin-right:8px;}    
+#page p.pageRemark{border-style:none; background:none; margin-right:0px padding:4px 0px; color:#666;}    
+#page p.pageRemark b{ color:red;   }    
+#page p.pageEllipsis{ border-style:none;    background:none;     padding:4px 0px;     color:#808080;   } 
+
+
+.photo-block-admin{position: relative;padding: 10px;min-height:400px;text-align: center;border:solid 2px #f2f2f2;box-sizing: border-box;}
+.photo-block-admin > .photo-btn-bottom{position: absolute;width: 80%;padding: 20px;bottom: 0px;text-align: center;}
+
+.album-block-admin{ padding: 10px; min-height:500px; min-width: 200px; text-align: center; border:solid 2px #f2f2f2;box-sizing: border-box}
+.album-block-admin > .album{ display: block; margin: 0px auto; height: 300px; width: 80%; cursor: pointer;}
+.album-block-admin > .album > img{ width: 100%; height: 100%;}
+.album-block-admin > .album-btn-bottom{ width: 85%; padding: 20px; height: 40px; text-align: center;}
+.album-block-admin > .tag-bar{ width: 80%; height: 50px; padding: 10px;text-align: center;}
+.album-block-admin > .tag-bar > span{margin: 5px;}
+

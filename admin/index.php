@@ -28,4 +28,5 @@
 	<?php
 		include_once('common/view/script.php');
 	?>
+</body>
 </html>

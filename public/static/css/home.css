@@ -1,0 +1,33 @@
+body{background-color: #eee;}
+.home-header { position: fixed;left: 0;top: 0;z-index: 10000; width: 100%;height: 60px; border-bottom: 1px solid #404553; border-right: 1px solid #404553;border-radius: 0;}
+.home-footer{padding: 20px 0px; bottom: 0;background: #eee;width: 100%;text-align: center;border-top: solid 1px #ddd;}
+.home-footer p{margin: 5px;}
+
+.album-block-home {position: relative; padding: 5px;margin: 20px; min-height:400px; min-width: 200px; text-align: center; border:solid 1px #f2f2f2;box-shadow: 4px -4px 4px #ddd;box-sizing: border-box}
+.album-block-home .album{ display: block; margin: 0px auto; height: 300px; width: 80%; cursor: pointer;}
+.album-block-home .album img{ width: 100%; height: 100%;}
+.album-block-home .album-btn-bottom{ width: 85%; padding: 20px; height: 40px; text-align: center;}
+.album-block-home .tag-bar{ width: 100%; height: 70px; padding: 10px;text-align: center;background: #eee;box-sizing: border-box;}
+.album-block-home .tag-bar span{margin: 5px;}
+.album-block-home .user-info-bar{position: absolute;width: 80px;height: 80px;left: -20px;top: -20px;border-radius: 50% 50%; border:solid 1px #f2f2f2;box-shadow: 4px -4px 4px #ddd;cursor: pointer;background-color: #2F4056;color: #fff;}
+.album-block-home .user-info-bar .head-img{width: 90%;height: 90%;border-radius: 50% 50%;}
+.album-block-home .user-info-bar .head-img img{width: 90%;height: 90%;border-radius: 50% 50%;margin: 4px;}
+.album-block-home .user-info-bar .nick-name-bar{position: absolute;width: 100px;height:auto;background-color: #2F4056;left: 100%;top: 20px;border-radius: 5px;color:#fff;}
+ 
+.user-detail-container .user-info-bar, .album-detail-container .user-info-bar{position: absolute;width: 80px;height: 80px;left: -20px;top: -20px;border-radius: 50% 50%; border:solid 1px #f2f2f2;box-shadow: 4px -4px 4px #ddd;cursor: pointer;background-color: #2F4056;color: #fff;}
+.user-detail-container .head-img, .user-info-bar .head-img{width: 90%;height: 90%;border-radius: 50% 50%;}
+.user-detail-container .head-img img, .user-info-bar .head-img img{width: 90%;height: 90%;border-radius: 50% 50%;margin: 4px;}
+.user-detail-container .nick-name-bar, .user-info-bar .nick-name-bar{position: absolute;padding-left:10px;width: 300px;height: 30px;line-height: 30px; background-color: #2F4056;left: 100%;top: 25px;border-radius: 5px;color:#fff;}
+
+.user-detail-box,.detail-box{margin-top: 35px;margin-left: 35px;}
+
+.detail-box .layui-badge{margin:5px;}
+.photo{cursor: pointer;}
+.comment-container{background-color: #fff;width: 100%; padding: 20px;margin-top: 20px;}
+
+.comment-list{text-align: left;padding: 10px;}
+.comment-list li{margin:5px;}
+.comment-list .comment-btn{margin-left: 50px;}
+.comment-list .first-comment{border: solid 1px #eee; padding:5px;margin:10px;}
+.comment-list .first-comment .child-comment-list{border: solid 1px #eee; padding:5px;background-color: #eee;}
+.comment-list .first-comment .child-comment-list li{margin-top: 10px;}

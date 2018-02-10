@@ -17,7 +17,7 @@
 						if(!$nick_name){
 							$errCode = 410;
 							$errMsg  = '昵称不能为空';
-						}else if(strlen($nick_name)>20){
+						}else if(mb_strlen($nick_name)>20){
 							$errCode = 410;
 							$errMsg  = '昵称长度不能大于20';
 						}else if($_DB->rowCount("SELECT * FROM user WHERE nick_name = '{$nick_name}'")){
@@ -38,7 +38,7 @@
 						if(!$introduction){
 							$errCode = 410;
 							$errMsg  = '自我介绍不能为空';
-						}else if(strlen($introduction)>200){
+						}else if(mb_strlen($introduction)>200){
 							$errCode = 410;
 							$errMsg  = '自我介绍长度不能大于200';
 						}else if($_DB->rowCount("SELECT * FROM user WHERE introduction = '{$introduction}'")){

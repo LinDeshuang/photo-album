@@ -8,7 +8,7 @@
 </head>
 <body>
 	<?php
-		include_once('../home/common/view/top.php');
+		include_once('common/view/top.php');
 	?>
 	<div class="layui-container">
 		<form class="layui-form layui-bg-cyan text-center" style="margin:10% auto;padding:30px;width: 500px;">
@@ -48,6 +48,9 @@
 			</div>
 		</form>
 	</div>
+	<?php
+		include_once('common/view/foot.php');
+	?>
 </body>
 	<?php
 		include_once('common/view/script.php');

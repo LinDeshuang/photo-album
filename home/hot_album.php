@@ -3,22 +3,22 @@
 <head>
 	<title>电子相册管理系统</title>
 	<?php
-		include_once('home/common/view/head.php');
-		require('class/db.php');
-		require('class/page.php');
+		include_once('common/view/head.php');
+		require('../class/db.php');
+		require('../class/page.php');
 	?>
 </head>
 	<body>
 		<!-- 顶部 -->
 		<?php
-			include_once('home/common/view/top.php');
+			include_once('common/view/top.php');
 		?>
 		<!-- 内容主体区域 -->
 		<div class="layui-container" style="padding: 15px;min-height: 700px;">
-			<blockquote class='layui-elem-quote' style="background-color: #fff;">最新相册</blockquote> 
+			<blockquote class='layui-elem-quote' style="background-color: #fff;">最热相册&nbsp;<span class="layui-badge">按点击量排名</span></blockquote> 
 			<?php 
 				$tag_info = $_DB->query("SELECT * FROM album_tag WHERE d_time=0");
-				$album_info = $_DB->query("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type,  album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status=1 AND album.d_time=0 AND album.album_type=1 AND album.album_photo != ''  ORDER BY album.create_time  DESC limit 8");
+				$album_info = $_DB->query("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type,  album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status=1 AND album.d_time=0 AND album.album_type=1 AND album.album_photo != ''  ORDER BY album.click_count  DESC limit 8");
 			 ?>
 			 <div class="layui-container" style="background-color: #fff;width: 100%; padding: 20px;">
 			 	<div class="layui-row">
@@ -67,11 +67,11 @@
 		</div>
 		<!-- 底部 -->
 		<?php
-			include_once('home/common/view/foot.php');
+			include_once('common/view/foot.php');
 		?>
 	</body>
 	<?php
-		include_once('home/common/view/script.php');
+		include_once('common/view/script.php');
 	?>
 	<script type="text/javascript">
 		$(function(){

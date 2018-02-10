@@ -21,7 +21,7 @@
 		}else if($password!=$confirm_password){
 			$errCode = 410;
 			$errMsg = '两次输入的密码不一致';
-		}else if(strlen($nick_name)>20){
+		}else if(mb_strlen($nick_name)>20){
 			$errCode = 410;
 			$errMsg = '昵称长度不能大于20';
 		}else if($_DB->rowCount("SELECT * FROM user WHERE nick_name = '{$nick_name}'")){

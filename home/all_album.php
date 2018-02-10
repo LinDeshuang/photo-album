@@ -3,26 +3,32 @@
 <head>
 	<title>电子相册管理系统</title>
 	<?php
-		include_once('home/common/view/head.php');
-		require('class/db.php');
-		require('class/page.php');
+		include_once('common/view/head.php');
+		require('../class/db.php');
+		require('../class/page.php');
+		//获取当前页号
+		$page = isset($_GET['page'])?$_GET['page']:1;
 	?>
 </head>
 	<body>
 		<!-- 顶部 -->
 		<?php
-			include_once('home/common/view/top.php');
+			include_once('common/view/top.php');
 		?>
 		<!-- 内容主体区域 -->
-		<div class="layui-container" style="padding: 15px;min-height: 700px;">
-			<blockquote class='layui-elem-quote' style="background-color: #fff;">最新相册</blockquote> 
+		<div class="layui-container" style="padding: 15px;min-height:700px;">
+			<blockquote class='layui-elem-quote' style="background-color: #fff;">所有相册</blockquote> 
 			<?php 
 				$tag_info = $_DB->query("SELECT * FROM album_tag WHERE d_time=0");
-				$album_info = $_DB->query("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type,  album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status=1 AND album.d_time=0 AND album.album_type=1 AND album.album_photo != ''  ORDER BY album.create_time  DESC limit 8");
+				$all_album_count = $_DB->rowCount("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type, album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status=1 AND album.d_time=0 AND album.album_type=1 AND album.album_photo != '' ");
+				$page_size = 8;
+				$start = $page_size*($page-1);
+				$url = "/home/all_album.php?page={page}";
+				$album_info = $_DB->query("SELECT album.id AS album_id, album.user_id, album.album_name, album.album_intro, album.tag_set, album.album_type, album.click_count, album.album_photo, album.status, album.d_time, album.create_time, user.nick_name, user.photo FROM album LEFT JOIN user ON album.user_id = user.id WHERE album.status=1 AND album.d_time=0 AND album.album_type=1 AND album.album_photo != ''  ORDER BY album.create_time  DESC LIMIT {$start},{$page_size}");
 			 ?>
 			 <div class="layui-container" style="background-color: #fff;width: 100%; padding: 20px;">
 			 	<div class="layui-row">
-				 	<?php
+			 	<?php
     	 		if(!$album_info){
     	 			echo "<blockquote class='layui-elem-quote layui-quote-nm'>目前还没有公开的相册</blockquote>";
     	 		}else{
@@ -43,7 +49,7 @@
 						      </div>
 						      <div class='tag-bar'>标签：";
 					//标签处理
-						    $tag_set = explode(',', $tag_set);
+					        $tag_set = explode(',', $tag_set);
 							foreach ($tag_info as $key => $value) {
 								
 								foreach ($tag_set as $k => $v) {
@@ -64,14 +70,23 @@
 	    	 	 ?>
 			 	</div>
 			 </div>
+		 	<!--输出当前页相册的照片分页栏 -->
+	     	<div class="showPage">
+	     		<?php 
+	 		   		if($all_album_count > $page_size){
+	   					$Page = new Page($all_album_count,$page_size,$page,$url,1);
+						echo $Page->p_write();
+	   				}
+	   		 	?>
+	     	</div>
 		</div>
 		<!-- 底部 -->
 		<?php
-			include_once('home/common/view/foot.php');
+			include_once('common/view/foot.php');
 		?>
 	</body>
 	<?php
-		include_once('home/common/view/script.php');
+		include_once('common/view/script.php');
 	?>
 	<script type="text/javascript">
 		$(function(){

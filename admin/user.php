@@ -22,7 +22,7 @@
   
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <div class="layui-tab layui-tab-brief">
 	  <ul class="layui-tab-title">
 	    <li class="layui-this">基本信息</li>
 	    <li>帐号设置</li>
@@ -37,9 +37,9 @@
 				    <div class="layui-timeline-content layui-text">
 				      <h3 class="layui-timeline-title">我的资料</h3>
 				      <img id="photo" src="<?php echo $user_info[0]['photo'];?>" class="layui-anim layui-anim-up" alt="用户头像" title="用户头像" width="200px" height="200px" style="border:solid 2px #2F4056;border-radius: 50%;"><br>
-				      <button type="button" class="layui-btn" id="changePhoto" style="margin: 10px 50px;">
+				      <a href="/admin/set_head_photo.php" class="layui-btn" style="margin: 10px 50px;">
 				      	<i class="layui-icon">&#xe60d;</i>设置头像
-				      </button>
+				      </a>
 				    </div>
 				  </li>
 				  <li class="layui-timeline-item">
@@ -166,7 +166,7 @@
 						  		}
 								layer.close(index);
 						  	},
-						  	fail:function(){
+						  	error:function(){
 								layer.close(index);
 						  	}
 						  });
@@ -202,7 +202,7 @@
 						  		}
 								layer.close(index);
 						  	},
-						  	fail:function(){
+						  	error:function(){
 								layer.close(index);
 						  	}
 						  });
@@ -260,4 +260,5 @@
 			});
 		});
 	</script>
+</body>
 </html>

@@ -67,6 +67,9 @@
 			</div>
 		</form>
 	</div>
+	<?php
+		include_once('common/view/foot.php');
+	?>
 </body>
 	<?php
 		include_once('common/view/script.php');

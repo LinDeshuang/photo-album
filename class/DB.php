@@ -46,15 +46,24 @@ class DB
   public function rowCount($sql)
   {
   	$stmt=$this->con->query($sql);
-  	return $stmt->rowCount();
+    if($stmt === false){
+      return 0;
+    }else{
+      return $stmt->rowCount();
+    }
   }
   public function prepare($sql,$array=array()){
     $stmt=$this->con->prepare($sql);
     $stmt->execute($array);
-    return $stmt;
+    $res = $stmt->errorInfo();
+    if($res[0] == '00000'){
+      return true;
+    }else{
+      return false;
+    }
   }
-  public function lastInsertId($id){
-    return $this->con->lastInsertId($id);
+  public function lastInsertId($id_name){
+    return $this->con->lastInsertId($id_name);
   }
   public function errorInfo(){
   	return $this->con->errorInfo();
