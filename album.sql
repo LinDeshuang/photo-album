@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-02-10 16:56:03
+Date: 2018-02-10 17:58:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,13 +25,13 @@ CREATE TABLE `album` (
   `album_name` varchar(20) NOT NULL,
   `album_intro` varchar(255) DEFAULT NULL,
   `tag_set` varchar(30) DEFAULT NULL,
-  `album_type` bit(1) NOT NULL DEFAULT b'0' COMMENT '1为公开相册，0为私有',
+  `album_type` char(1) NOT NULL DEFAULT '1' COMMENT '1为公开相册，0为私有',
   `album_photo` varchar(255) DEFAULT NULL,
   `click_count` int(9) DEFAULT '0',
   `create_time` int(11) NOT NULL,
   `update_time` int(11) NOT NULL DEFAULT '0',
   `d_time` int(11) NOT NULL DEFAULT '0',
-  `status` bit(1) NOT NULL DEFAULT b'1',
+  `status` char(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `album_user_id` (`user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
@@ -62,10 +62,10 @@ CREATE TABLE `comment` (
   `album_id` int(10) NOT NULL,
   `comment_content` varchar(255) NOT NULL,
   `create_time` int(11) NOT NULL,
-  `status` bit(1) NOT NULL DEFAULT b'1',
+  `status` char(1) NOT NULL DEFAULT '1',
   `d_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for photo
@@ -80,8 +80,8 @@ CREATE TABLE `photo` (
   `note` varchar(150) DEFAULT NULL,
   `create_time` int(11) NOT NULL,
   `d_time` int(11) DEFAULT '0',
-  `status` bit(1) NOT NULL DEFAULT b'1',
-  `is_head` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否是头像图片',
+  `status` char(1) NOT NULL DEFAULT '1',
+  `is_head` char(1) NOT NULL DEFAULT '0' COMMENT '是否是头像图片',
   PRIMARY KEY (`id`),
   KEY `photo_user_id` (`user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
@@ -95,13 +95,13 @@ CREATE TABLE `user` (
   `account` varchar(30) NOT NULL COMMENT '账号',
   `password` varchar(255) NOT NULL COMMENT '密码',
   `nick_name` varchar(20) NOT NULL COMMENT '用户昵称',
-  `gender` bit(1) DEFAULT NULL COMMENT '性别，1为男，2为女，0为未知',
+  `gender` char(1) NOT NULL DEFAULT '0' COMMENT '性别，1为男，2为女，0为未知',
   `introduction` varchar(255) DEFAULT NULL COMMENT '简介',
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
   `photo` varchar(150) DEFAULT NULL COMMENT '头像地址',
   `create_time` int(11) NOT NULL COMMENT '注册时间',
-  `delete_time` int(11) DEFAULT NULL,
-  `status` bit(1) DEFAULT NULL COMMENT '用户状态，1为启用，2为禁用',
+  `delete_time` int(11) DEFAULT '0',
+  `status` char(1) DEFAULT '1' COMMENT '用户状态，1为启用，2为禁用',
   `points` int(8) DEFAULT NULL COMMENT '用户积分',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
