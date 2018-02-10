@@ -55,7 +55,13 @@
 				   <li class="layui-timeline-item">
 				    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
 				    <div class="layui-timeline-content layui-text">
-				      <h4 class="layui-timeline-title layui-bg-cyan" style="height: 40px;padding: 5px;line-height: 2em;">性别：<?php echo $gender?'男':'女'?></h4>
+				      <h4 class="layui-timeline-title layui-bg-cyan" style="height: 40px;padding: 5px;line-height: 2em;">性别：<?php if($gender=='1'){echo "男&nbsp;<i class='layui-icon'>&#xe662;</i>";}else if($gender=='2'){echo "女<i class='layui-icon'>&#xe661;</i>";}else{echo "未知";} ?></h4>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+				    <div class="layui-timeline-content layui-text">
+				      <h4 class="layui-timeline-title layui-bg-cyan" style="height: 40px;padding: 5px;line-height: 2em;">邮箱：<?php echo $email;?></h4>
 				    </div>
 				  </li>
 				   <li class="layui-timeline-item">

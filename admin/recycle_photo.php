@@ -29,11 +29,11 @@
     <?php 
     	$user_id = $_SESSION['user_id'];
 
-    	$count = $_DB->rowCount("SELECT * FROM photo WHERE status = 1 and user_id = {$user_id} and d_time != 0 and {$search_type} LIKE '%{$search_val}%' ");
+    	$count = $_DB->rowCount("SELECT * FROM photo WHERE status = '1' and user_id = {$user_id} and d_time != 0 and {$search_type} LIKE '%{$search_val}%' ");
     	$page_size = 8;
     	$url = "manage_photo.php?nav=2-1&search_type={$search_type}&search_val={$search_val}&page={page}";
     	$start = $page_size*($page-1);
-   		$photo_info = $_DB->query("SELECT * FROM photo WHERE status = 1 and user_id = {$user_id} and d_time != 0 and {$search_type} LIKE '%{$search_val}%' ORDER BY create_time DESC LIMIT {$start},{$page_size}  ");
+   		$photo_info = $_DB->query("SELECT * FROM photo WHERE status = '1' and user_id = {$user_id} and d_time != 0 and {$search_type} LIKE '%{$search_val}%' ORDER BY create_time DESC LIMIT {$start},{$page_size}  ");
      ?>
      	<form class="layui-form layui-form-pane">
 		    <label class="layui-form-label">图片搜索</label>
