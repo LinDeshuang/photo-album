@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login page</title>
+	<title>请登录</title>
 	<?php
 		include_once('common/view/head.php');
 	?>
@@ -72,7 +72,7 @@
 			  		success:function(retData){
 			  			if(retData.errcode == 0){
 			  				layer.msg(retData.errmsg,{icon:1});
-			  				setTimeout(function(){window.history.back();},1500);
+			  				setTimeout(function(){window.location.href='/index.php';},1500);
 			  			}else{
 			  				layer.msg(retData.errmsg,{icon:5});
 			  			}
