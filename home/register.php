@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>register page</title>
+	<title>用户注册</title>
 	<?php
 		include_once('common/view/head.php');
 	?>
